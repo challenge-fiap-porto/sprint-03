@@ -5,7 +5,6 @@ import App from "./App.jsx";
 import {
   createBrowserRouter,
   RouterProvider,
-  Navigate,
 } from "react-router-dom";
 import Ajuda from "./routes/Ajuda/index.jsx";
 import Home from "./routes/Home/index.jsx";
@@ -13,6 +12,7 @@ import SobreNos from "./routes/SobreNos/index.jsx";
 import Duvidas from "./routes/Duvidas/index.jsx";
 import Entrar from "./routes/Entrar/index.jsx";
 import Rm from "./routes/Rm/index.jsx";
+import "./reset.css"
 
 const router = createBrowserRouter([
   {

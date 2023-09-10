@@ -1,0 +1,16 @@
+.footer-test{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: #00a1fc;
+    border-color: black;
+    border-top: 3px;
+    border-style: solid;
+    margin-top: 20px;
+}
+footer{
+    position:relative;
+    bottom: 0;
+    width: 100%;
+    overflow:hidden;
+}
