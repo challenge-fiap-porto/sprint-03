@@ -1,87 +1,81 @@
+import React, { useState } from "react";
 import "./duvidas.css";
-import solicitar_ajuda from "../../imgs/solicitar-ajuda.png"
-import reembolso from "../../imgs/reembolso.png"
-import dados_pessoais from "../../imgs/dados-pessoais.png"
-import apolices from "../../imgs/apolices.png"
-import boleto from "../../imgs/boleto.png"
-import fatura from "../../imgs/fatura.png"
-import beneficios from "../../imgs/beneficios.png"
-import sinistro from "../../imgs/sinistro.png"
-
-
 
 export default function Duvidas() {
+  const [open, setOpen] = useState(Array(4).fill(false));
+
+  const toggleAccordion = (index) => {
+    const newOpenState = [...open];
+    newOpenState[index] = !newOpenState[index];
+    setOpen(newOpenState);
+  };
+
   return (
-    <main>
-      <h2 className="doubts">Como podemos te ajudar?</h2>
-      <div className="center-search">
-        <input
-          className="search-doubts"
-          type="text"
-          name="ajuda"
-          id="idajuda"
-          placeholder="Olá, pesquise aqui o que você precisa!"
-        />
-      </div>
-      <h1 className="title-duvidas">Atendimento Porto:</h1>
-      <div className="adjustment-cards">
-        <div className="cards">
-            <img src={solicitar_ajuda} alt="Mulher de negócios" />
-          <h3 className="center-card">SOLICITAR AJUDA</h3>
-          <p>
-            Pedir ajuda no site da Porto Seguro é um processo simples e conveniente para os clientes em situações de emergência ou necessidade de assistência. Ao acessar o site da Porto Seguro  ...
-          </p>
-        </div>
-        <div className="cards">
-            <img src={sinistro} alt="Mulher preocupada" />
-          <h3 className="center-card">SINISTROS</h3>
-          <p>
-            Ao acessar a seção de sinistros no site da Porto Seguro, os clientes podem encontrar todas as informações sobre todos os documentos necessários para dar sua entrada no processo  ...
-          </p>
-        </div>
-        <div className="cards">
-            <img src={reembolso} alt="Aperto de mãos" />
-          <h3 className="center-card">REEMBOLSO</h3>
-          <p>
-            Para solicitar o reembolso, os clientes devem acessar a área do cliente no site da Porto Seguro e preencher o formulário de reembolso, fornecendo muitas informações relevantes, como o tipo  ...
-          </p>
-        </div>
-        <div className="cards">
-            <img src={beneficios} alt="Varias pessoas dando as mãos" />
-          <h3 className="center-card">BENEFÍCIOS</h3>
-          <p>
-            A Porto Seguro é uma empresa brasileira que oferece uma variedade de serviços e benefícios por meio do seu site. Abaixo estão alguns dos benefícios que você pode encontrar  ...
-          </p>
-        </div>
-        <div className="cards">
-            <img src={apolices} alt="Casal de idosos" />
-          <h3 className="center-card">APÓLICES</h3>
-          <p>
-            As apólices são contratos de seguro oferecidos pela Porto Seguro. Com elas é possivel  estabelecem os termos e condições do  seu seguro, sempre incluindo coberturas, exclusões  ...
-          </p>
-        </div>
-        <div className="cards">
-            <img src={fatura} alt="Contas" />
-          <h3 className="center-card">2ª VIA FATURA</h3>
-          <p>
-            A Porto Seguro é uma seguradora e instituição financeira que oferece diversos serviços, incluindo o pagamento de faturas online. Para obter a segunda via de uma  ...
-          </p>
-        </div>
-        <div className="cards">
-            <img src={dados_pessoais} alt="Notebook" />
-          <h3 className="center-card">DADOS PESSOAIS</h3>
-          <p>
-            A Porto Seguro é uma empresa que valoriza a proteção de dados pessoais de seus clientes. Verifique aqui como tratamos todos os seus dados e como você pode encontrar-los na  ...
-          </p>
-        </div>
-        <div className="cards">
-            <img src={boleto} alt="Boletos para pagar" />
-          <h3 className="center-card">2ª VIA BOLETO</h3>
-          <p>
-            A Porto Seguro oferece a opção de emissão da segunda via de boleto através do seu site. Esse recurso permite aos clientes acessarem facilmente suas faturas e efetuarem  ... 
-          </p>
-        </div>
-      </div>
+    <main className="faq">
+      <h1 className="title-faq">Tire suas dúvidas:</h1>
+
+      <section className="faq-container">
+        {faqData.map((faq, index) => (
+          <div key={index} className={`faq-${index}`}>
+            <h2
+              className={`faq-page ${open[index] ? "active" : ""}`}
+              onClick={() => toggleAccordion(index)}
+            >
+              {faq.question}
+            </h2>
+
+            <div
+              className="faq-body"
+              style={{ display: open[index] ? "block" : "none" }}
+            >
+              <p>{faq.answer}</p>
+            </div>
+            <hr />
+          </div>
+        ))}
+      </section>
     </main>
   );
 }
+
+const faqData = [
+  {
+    question: "Quais são as formas de pagamento aceitas no seguro bike?",
+    answer:
+      "Até 6x sem juros por débito automático em conta corrente ou cartão de crédito de qualquer bandeira; Até 12x no Cartão de Crédito Porto Bank, com desconto especial de 5%",
+  },
+  {
+    question: "A cobertura de roubo garante furto simples?",
+    answer:
+      "A cobertura de roubo garante a subtração da bicicleta e dos acessórios, mediante o emprego de violência ou o rompimento de obstáculos do local, desde que existam vestígios materiais. Não é o caso de amparos para simples desaparecimentos ou extravios.",
+  },
+  {
+    question: "Qual é o valor da franquia do Seguro Bike da Porto?",
+    answer:
+      "O valor da franquia, ou seja, participação do segurado na hora de pagar pela reparação de um dano, pode variar de acordo com o preço da sua bike e essa informação está detalhada no documento do seguro (apólice). Este valor é o mesmo que foi definido junto ao corretor no momento da negociação do seguro e só ocorre quando há indenização por parte da seguradora.",
+  },
+  {
+    question: "O seguro bike tem cobertura para terceiros?",
+    answer:
+      "Sim, de forma opcional. Chamamos de cobertura de Responsabilidade Civil, que oferece amparo para danos materiais ou corporais causados a terceiros durante o uso da bicicleta. Ex.: a bike atingiu uma pessoa ou veículo de alguém, a cobertura ampara essas situações, desde que a pessoa atingida não seja alguém da sua família.",
+  },
+  {
+    question:
+      "Qual é o valor mínimo da bicicleta para que eu possa contratar o Seguro Bike da Porto?",
+    answer:
+      "Você pode contratar o seguro para bicicletas com valores a partir de R$ 2.000,00",
+  },
+  {
+    question: "Posso contratar o seguro de bike para bicicleta usada?",
+    answer: (
+      <>
+        <p>Você pode contratar o seguro para: </p>
+        <ul className="body-postion-faq">
+          <li>Bicicleta tradicional nova; </li>
+          <li> Bicicleta tradicional com até 8 anos de uso: </li>
+          <li>Bicicleta elétrica com até 3 anos de uso: </li>
+        </ul>
+      </>
+    ),
+  },
+];

@@ -106,10 +106,6 @@ section {
 body {
   line-height: 1;
 }
-ol,
-ul {
-  list-style: none;
-}
 blockquote,
 q {
   quotes: none;
@@ -148,11 +144,15 @@ table {
 }
 
 ::-moz-selection {
-    color: black;
-    background: #B1E2FD;
-  }
-  
-  ::selection {
-    color: black;
-    background: #B1E2FD;
-  }
+  color: black;
+  background: #b1e2fd;
+}
+
+::selection {
+  color: black;
+  background: #b1e2fd;
+}
+
+main {
+  min-height: 85vh;
+}

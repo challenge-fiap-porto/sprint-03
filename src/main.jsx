@@ -12,6 +12,7 @@ import SobreNos from "./routes/SobreNos/index.jsx";
 import Duvidas from "./routes/Duvidas/index.jsx";
 import Entrar from "./routes/Entrar/index.jsx";
 import Rm from "./routes/Rm/index.jsx";
+import Cadastrar from "./routes/Cadastrar/index.jsx";
 import "./reset.css"
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         path: "/rm",
         element: <Rm />,
       },
+      {
+        path: "/cadastrar",
+        element: <Cadastrar />,
+      }
     ],
   },
 ]);
