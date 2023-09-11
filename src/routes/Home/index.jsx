@@ -12,7 +12,7 @@ export default function Home() {
           <div className="low-space">
             <h1 className="title">
               Seguro Bike da <br />
-              <span className="color-text">Porto Seguro</span>{" "}
+              <span className="color-text">Porto Seguro</span>
             </h1>
           </div>
           <div className="text">

@@ -15,7 +15,7 @@ export default function cadastrar() {
         <h2>Preencha seus dados de acesso para continuar.</h2>
         <div className="inputs">
           <input
-            className="edit-input-entrar  cpf-mask"
+            className="edit-input-entrar"
             type="text"
             placeholder="CPF ou CNPJ"
           />

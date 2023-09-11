@@ -56,6 +56,7 @@
   border: transparent;
   margin-top: 15px;
   font-family: "poppins", sans-serif;
+  cursor: pointer;
 }
 
 .link-sign-up {
@@ -63,4 +64,5 @@
   font-size: 18px;
   text-decoration: none;
   margin-top: 10px;
+  cursor: pointer;
 }
