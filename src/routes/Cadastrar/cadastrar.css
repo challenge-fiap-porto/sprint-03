@@ -1,0 +1,26 @@
+
+.position-img-cadastrar {
+  position: absolute;
+  margin-top: 7%;
+  margin-left: 6%;
+  width: 800px;
+  z-index: -1;
+  
+}
+
+@media screen and (max-width:768px){
+
+  .position-img-cadastrar{
+    position: absolute;
+    margin-top: 18%;
+    margin-left: -12%;
+    width: 600px;
+  }
+
+}
+
+@media screen and (max-width:400px) {
+  .position-img-cadastrar{
+    display: none;
+  }
+}
